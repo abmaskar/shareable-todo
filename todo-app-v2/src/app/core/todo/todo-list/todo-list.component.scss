@@ -1,0 +1,27 @@
+.title {
+    text-align: center;
+    font-size: 36px;
+    margin-block-end: 16px;
+}
+
+.input-area {
+    display: flex;
+    gap: 8px;
+    height: 40px;
+    margin-block-end: 40px;
+
+    input {
+        flex-basis: 80%;
+    }
+
+    button {
+        flex-basis: 7%;
+        // height: 7px;
+    }
+}
+
+.todo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

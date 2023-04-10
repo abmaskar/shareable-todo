@@ -1,0 +1,16 @@
+<div class="item">
+    <div *ngIf="!editMode" class="item-title">{{todo.title}}</div>
+    <div *ngIf="!editMode" class="item-priority">{{todo.priority}}</div>
+    <button *ngIf="!editMode" mat-raised-button color="primary" (click)="onEdit()" tabindex="0">
+        <span>Edit</span>
+    </button>
+
+    <input *ngIf="editMode" class="item-title" [(ngModel)]="todo.title">
+    <div *ngIf="editMode" class="item-priority">{{todo.priority}}</div>
+    <button *ngIf="editMode" mat-raised-button color="primary" (click)="onUpdate()" tabindex="0">
+        <span>Update</span>
+    </button>
+    <button *ngIf="editMode" mat-raised-button color="primary" (click)="onDelete()" tabindex="0">
+        <span>Delete</span>
+    </button>
+</div>

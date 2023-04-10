@@ -1,0 +1,17 @@
+.item {
+    display: flex;
+    align-items: baseline;
+
+    .item-title {
+        flex-basis: 80%;
+    }
+
+    .item-priority {
+        flex-basis: 10%;
+    }
+
+    button {
+        flex-basis: 7%;
+        // height: 7px;
+    }
+}
