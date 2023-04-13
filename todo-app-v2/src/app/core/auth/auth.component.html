@@ -1,0 +1,28 @@
+<div class="title">{{isLogin? "Login": "Register"}}</div>
+<mat-tab-group>
+    <mat-tab label="Login">
+        <div class="form-area">
+            <input placeholder="Email" [(ngModel)]="email">
+            <input placeholder="Password" type="password" [(ngModel)]="password">
+            <button mat-raised-button color="primary" (click)="onLogin()" tabindex="0">
+                <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon> -->
+                Login
+                <!-- <span>New Component</span> -->
+            </button>
+        </div>
+
+    </mat-tab>
+    <mat-tab label="Register">
+        <div class="form-area">
+
+            <input placeholder="Name" [(ngModel)]="name">
+            <input placeholder="Email" [(ngModel)]="email">
+            <input placeholder="Password" type="password" [(ngModel)]="password">
+            <button mat-raised-button color="primary" (click)="onRegister()" tabindex="0">
+                <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon> -->
+                Register
+                <!-- <span>New Component</span> -->
+            </button>
+        </div>
+    </mat-tab>
+</mat-tab-group>

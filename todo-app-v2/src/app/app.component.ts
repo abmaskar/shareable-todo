@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoListComponent } from './core/todo/todo-list/todo-list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,14 @@ import { TodoListComponent } from './core/todo/todo-list/todo-list.component';
   // ]
   
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'todo-app';
+
+  constructor(private route: Router){}
+
+  ngOnInit(): void {
+    if(!localStorage.getItem("access_token")){
+      this.route.navigateByUrl('login');
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -13,18 +13,26 @@ export class TodoService {
     }
 
     getAllTodoByOwner(owner){
-        return this.http.get(`${this.baseUrl}/todo/owner/${owner}`);
+        let headers = new HttpHeaders();
+        headers = headers.append('Authentication', `${localStorage.getItem("access_token")}`);
+        return this.http.get(`${this.baseUrl}/todo/owner/${owner}`, {headers: headers});
     }
 
     createTodo(todo){
-        return this.http.post(`${this.baseUrl}/todo`,todo);
+        let headers = new HttpHeaders();
+        headers = headers.append('Authentication', `${localStorage.getItem("access_token")}`);
+        return this.http.post(`${this.baseUrl}/todo`,todo,  {headers: headers});
     }
 
     updateTodo(todo){
-        return this.http.post(`${this.baseUrl}/todo/update`,todo);
+        let headers = new HttpHeaders();
+        headers = headers.append('Authentication', `${localStorage.getItem("access_token")}`);
+        return this.http.post(`${this.baseUrl}/todo/update`,todo, {headers: headers});
     }
 
     deleteTodo(id){
-        return this.http.delete(`${this.baseUrl}/todo/${id}`);
+        let headers = new HttpHeaders();
+        headers = headers.append('Authentication', `${localStorage.getItem("access_token")}`);
+        return this.http.delete(`${this.baseUrl}/todo/${id}`, {headers: headers});
     }
   }
