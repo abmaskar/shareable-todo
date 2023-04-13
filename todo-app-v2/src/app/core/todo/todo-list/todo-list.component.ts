@@ -35,10 +35,10 @@ export class TodoListComponent implements OnInit {
   }
 
   getAllTodoByOwner() {
-    this.todoService.getAllTodoByOwner("a").subscribe((res: any[any]) => {
+    this.todoService.getAllTodoByOwner(localStorage.getItem("email")).subscribe((res: any[any]) => {
       this.todos = res.map(item => {
         return {
-          id: item['id'],
+          _id: item['_id'],
           title: item['title'],
           owner: item['owner'],
           priority: item['priority'],
@@ -54,7 +54,7 @@ export class TodoListComponent implements OnInit {
     if (this.task) {
       this.todoService.createTodo({
         "title": this.task,
-        "owner": "a",
+        "owner": localStorage.getItem("email"),
         "status": "open",
         "priority": "low"
       }).subscribe(res => {
@@ -67,4 +67,11 @@ export class TodoListComponent implements OnInit {
     }
   }
 
+  onActionEvent(event, index){
+    console.log(event);
+    console.log(index);
+    if(event ==='update' || event ==='delete'){
+      this.getAllTodoByOwner();
+    } 
+  }
 }

@@ -1,12 +1,26 @@
 <div class="item">
+    <mat-checkbox [checked]="todo.status === 'close'" (change)="onClose()"></mat-checkbox>
     <div *ngIf="!editMode" class="item-title">{{todo.title}}</div>
     <div *ngIf="!editMode" class="item-priority">{{todo.priority}}</div>
     <button *ngIf="!editMode" mat-raised-button color="primary" (click)="onEdit()" tabindex="0">
         <span>Edit</span>
     </button>
 
-    <input *ngIf="editMode" class="item-title" [(ngModel)]="todo.title">
-    <div *ngIf="editMode" class="item-priority">{{todo.priority}}</div>
+    <input *ngIf="editMode" class="item-title" [(ngModel)]="task">
+    <mat-form-field *ngIf="editMode" appearance="fill">
+        <mat-label>Priority</mat-label>
+        <mat-select [(value)]="priority">
+            <mat-option value="low">
+                Low
+            </mat-option>
+            <mat-option value="mid">
+                Mid
+            </mat-option>
+            <mat-option value="high">
+                High
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
     <button *ngIf="editMode" mat-raised-button color="primary" (click)="onUpdate()" tabindex="0">
         <span>Update</span>
     </button>

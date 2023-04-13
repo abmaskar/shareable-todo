@@ -2,13 +2,13 @@
 <div class="input-area">
     <input placeholder="New Task" [(ngModel)]="task">
     <button mat-raised-button color="primary" (click)="onCreate()" tabindex="0">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
         Create
         <!-- <span>New Component</span> -->
     </button>
 </div>
 
 <div class="todo-area">
-    <todo *ngFor="let todo of todos" [todo]="todo">
+    <todo *ngFor="let todo of todos; let i = index" [todo]="todo" (action)="onActionEvent($event, i)">
     </todo>
 </div>

@@ -1,7 +1,7 @@
 .item {
     display: flex;
     align-items: baseline;
-
+    gap: 10px;
     .item-title {
         flex-basis: 80%;
     }

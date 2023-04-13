@@ -6,6 +6,7 @@ import { TodoListComponent } from './core/todo/todo-list/todo-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app.route';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    TodoListComponent,
+    AppRoutingModule,
+    // TodoListComponent,
     HttpClientModule,
     BrowserAnimationsModule,
     
